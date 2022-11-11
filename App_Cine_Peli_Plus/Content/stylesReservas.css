@@ -1,0 +1,35 @@
+﻿body {
+    
+}
+
+.table-responsive {
+    border: 5px;
+    background-color: aquamarine;
+}
+
+table {
+    width: 100%;
+    background: white;
+    margin-bottom: 1.25em;
+    border: solid 1px #dddddd;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+    table tr th,
+    table tr td {
+        padding: 0.5625em 0.625em;
+        font-size: 0.875em;
+        color: #222222;
+        border: 1px solid #dddddd;
+    }
+
+    table tr.even,
+    table tr.alt,
+    table tr:nth-of-type(even) {
+<<<<<<< HEAD
+        background: #f9f9f9
+    }
+=======
+        background: #f9f9f9;
+>>>>>>> 7b02eac6fcfe27bcfa9f9c8a455853357ec64814

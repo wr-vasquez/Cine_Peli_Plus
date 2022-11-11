@@ -8,83 +8,36 @@ namespace App_Cine_Peli_Plus.Controllers
 {
     public class CineController : Controller
     {
+        public class Cliente
+        {
+            public string Nombre { get; set; }
+            public string Identidad { get; set; }
+            public string Email { get; set; }
+            public string Tarjeta { get; set; }
+        }
         // GET: Cine
-        public ActionResult Index()
+        public ActionResult Registro()
         {
             return View();
         }
 
-        // GET: Cine/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Cine/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Cine/Create
+        //POST: Cine
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Registro(Cliente c, string nombre, string identidad, string email, string tarjeta)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            c.Nombre = nombre;
+            c.Identidad = identidad;
+            c.Email = email;
+            c.Tarjeta = tarjeta;
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Cine/Edit/5
-        public ActionResult Edit(int id)
-        {
+            ViewBag.Nombre = c.Nombre;
+            ViewBag.Identidad = c.Identidad;
+            ViewBag.Email = c.Email;
+            ViewBag.Tarjeta = c.Tarjeta;
             return View();
-        }
 
-        // POST: Cine/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
-        // GET: Cine/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Cine/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-           
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

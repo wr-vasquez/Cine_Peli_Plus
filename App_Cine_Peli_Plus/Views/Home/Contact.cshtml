@@ -1,17 +1,93 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+
 
 <address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
+    
 </address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/stylesReservas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    @*<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">*@
+    <title>CinePlus</title>
+</head>
+<body>
+    <nav>
+        <h1>DETALLE DE PELICULAS RESERVADAS</h1>
+    </nav>
+    <main>
+
+
+        <table class="resp">
+            <thead>
+                <tr>
+
+                    <th scope="col">Tipo reserva</th>
+                    <th scope="col">Voletos</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Horario </th>
+                    <th scope="col">Sala</th>
+                    <th scope="col">Asientos</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    <td>3D</td>
+                    <td>2</td>
+                    <td>11/11/2022</td>
+                    <td>14:00 - 15:00 PM</td>
+                    <td>10</td>
+                    <td>10-11</td>
+                </tr>
+                <tr>
+                    <td>2D</td>
+                    <td>1</td>
+                    <td>15/11/2022</td>
+                    <td>17:00 - 18:00 PM</td>
+                    <td>2</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>3D</td>
+                    <td>3</td>
+                    <td>13/11/2022</td>
+                    <td>17: - 17:40 PM</td>
+                    <td>2</td>
+                    <td>5-6-7</td>
+                </tr>
+                <tr>
+                    <td>3D</td>
+                    <td>2</td>
+                    <td>12/11/2022</td>
+                    <td>18:00 19:10 PM</td>
+                    <td>1</td>
+                    <td>8-9</td>
+                </tr>
+                <tr>
+                    <td>2D</td>
+                    <td>4</td>
+                    <td>12/11/2022</td>
+                    <td>20:00 - 21:00 PM</td>
+                    <td>4</td>
+                    <td>6-7, 11-12</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <img  src="~/img/main/fondoCine.png"/>
+        </div>
+
+    </main>
+
+</body>
+</html>

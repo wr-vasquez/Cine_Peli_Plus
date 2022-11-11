@@ -132,10 +132,54 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\estilos.css" />
+    <Content Include="Content\styleChiqui.css" />
+    <Content Include="Content\stylesReservas.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\imgChiqui\1.png" />
+    <Content Include="img\imgChiqui\13-HORAS.jpg" />
+    <Content Include="img\imgChiqui\2.png" />
+    <Content Include="img\imgChiqui\2020.jpg" />
+    <Content Include="img\imgChiqui\3.png" />
+    <Content Include="img\imgChiqui\4.png" />
+    <Content Include="img\imgChiqui\5.png" />
+    <Content Include="img\imgChiqui\6.png" />
+    <Content Include="img\imgChiqui\7.png" />
+    <Content Include="img\imgChiqui\8.png" />
+    <Content Include="img\imgChiqui\9.png" />
+    <Content Include="img\imgChiqui\ALADDIN.jpg" />
+    <Content Include="img\imgChiqui\ALICIA.jpg" />
+    <Content Include="img\imgChiqui\AVATAR.jpg" />
+    <Content Include="img\imgChiqui\BRUCE-LEE.jpg" />
+    <Content Include="img\imgChiqui\CAMPEONES.jpg" />
+    <Content Include="img\imgChiqui\DEADPOOL.jpg" />
+    <Content Include="img\imgChiqui\EL-CUARTO-PASAJERO.jpg" />
+    <Content Include="img\imgChiqui\EL-JUSTICIERO.jpg" />
+    <Content Include="img\imgChiqui\EL-ULTIMO-VIKINGO.jpg" />
+    <Content Include="img\imgChiqui\ELLEGADO.jpg" />
+    <Content Include="img\imgChiqui\FROZEN.jpg" />
+    <Content Include="img\imgChiqui\GLADIATOR.jpg" />
+    <Content Include="img\imgChiqui\KEYLA.jpg" />
+    <Content Include="img\imgChiqui\LA-GARRA.jpg" />
+    <Content Include="img\imgChiqui\LaCiudadPerdida.jpg" />
+    <Content Include="img\imgChiqui\NEMO.jpg" />
+    <Content Include="img\imgChiqui\PROYECTO-ADAM.jpg" />
+    <Content Include="img\imgChiqui\thumb.png" />
+    <Content Include="img\imgChiqui\TRIPLE-FRONTERA.jpg" />
+    <Content Include="img\main\1.png" />
+    <Content Include="img\main\2.png" />
+    <Content Include="img\main\3.png" />
+    <Content Include="img\main\4.png" />
+    <Content Include="img\main\5.png" />
+    <Content Include="img\main\6.png" />
+    <Content Include="img\main\7.png" />
+    <Content Include="img\main\backdrop.jpg" />
+    <Content Include="img\main\fondo2.png" />
+    <Content Include="img\main\fondoCine.png" />
+    <Content Include="img\main\thumb.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -148,7 +192,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\sedechiqui.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -163,11 +209,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Cine\Registro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Cine\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

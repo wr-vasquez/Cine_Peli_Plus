@@ -1,7 +1,95 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cartelera</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
+    <link rel="stylesheet" href="~/Content/styleChiqui.css">
+</head>
+<body>
+    <div class="contenedor">
+        <main class="contenido-principal">
+
+            <img src="~/img/imgChiqui/2020.jpg" alt="Dome of the German Bundestag" class="contenido-principal__imagen">
+            <div class="contenido-principal__contenedor">
+                <h1 class="contenido-principal__titulo">2020</h1>
+                <p class="contenido-principal__resumen">
+                    Reserva tu entrada para esta Pelicula
+                </p>
+                <p class="contenido-principal__resumen">
+                    Ven a Cine Peli Plus "y comparte esta gran experiencia Con tus Amigos "
+
+                </p>
+            </div>
+        </main>
+
+        <div class="carousel">
+            <div class="carousel__contenedor">
+                <button aria-label="Anterior" class="carousel__anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <div class="carousel__lista">
+                    <div class="carousel__elemento">
+
+                        <a href="@Url.Action("Registro","Cine", new { numpagina = @ViewData["Registro"], cliente= @ViewData["Cine"]} )"><img src="~/img/imgChiqui/AVATAR.jpg" alt="Los Avatar"> </a>
+                        <p>Los Avatar</p>
+                    
+                    </div>
+                    <div class="carousel__elemento">
+                        <a href="@Url.Action("Registro","Cine", new { numpagina = @ViewData["Registro"], cliente= @ViewData["Cine"]} )"><img src="~/img/imgChiqui/BRUCE-LEE.jpg" alt="Bruce Lee"></a>
+                        <p>Bruce Lee</p>
+
+                    </div>
+
+                    <div class="carousel__elemento">
+                        <a href="@Url.Action("Registro","Cine", new { numpagina = @ViewData["Registro"], cliente= @ViewData["Cine"]} )"> <img src="~/img/imgChiqui/EL-ULTIMO-VIKINGO.jpg" alt="El Justiciero"></a>
+                        <p>Ultimo Vikingo</p>
+
+                    </div>
+
+                    <div class="carousel__elemento">
+                        <a href="@Url.Action("Registro","Cine", new { numpagina = @ViewData["Registro"], cliente= @ViewData["Cine"]} )"><img src="~/img/imgChiqui/13-HORAS.jpg" alt="Las 13 Horas"> </a>
+                        <p>Las 13 Horas</p>
+
+                    </div>
+                    <div class="carousel__elemento">
+                        <a href="@Url.Action("Registro","Cine", new { numpagina = @ViewData["Registro"], cliente= @ViewData["Cine"]} )"><img src="~/img/imgChiqui/PROYECTO-ADAM.jpg" alt="Proyecto Adam"></a>
+                        <p>Proyecto Adam</p>
+
+                    </div>
+                    <div class="carousel__elemento">
+                        <a href="@Url.Action("Registro","Cine", new { numpagina = @ViewData["Registro"], cliente= @ViewData["Cine"]} )"><img src="~/img/imgChiqui/ALADDIN.jpg" alt="Empire State Building"></a>
+                        <p>Aladdin</p>
+                      
+                    </div>
+                    <div class="carousel__elemento">
+                        <a href="@Url.Action("Registro","Cine", new { numpagina = @ViewData["Registro"], cliente= @ViewData["Cine"]} )"><img src="~/img/imgChiqui/GLADIATOR.jpg" alt="Harmony Tower"></a>
+                        <p>Gladiator</p>
+
+                    </div>
+                </div>
+
+                <button aria-label="Siguiente" class="carousel__siguiente">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div role="tablist" class="carousel__indicadores"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <script src="~/Scripts/sedechiqui.js"></script>
+</body>
+</html>
