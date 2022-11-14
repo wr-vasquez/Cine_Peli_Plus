@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "DtosClientes";
+}
+
+<h2>DtosClientes</h2>
+
+<div>
+    <form  >
+        <div>
+            <label>NOMBRE</label>
+            <input type="text" required id="nombre" />
+        </div>
+        <div>
+            <label>DPI</label>
+            <input type="text" required id="dpi" />
+        </div>
+        <div>
+            <label>CORREO</label>
+            <input type="text" required id="correo" />
+        </div>
+        <div>
+            <label>TARJETA</label>
+            <input type="text" required  id="tarjeta" />
+        </div>
+        <div>
+            <button onclick="crearNuevoRegistro() " >Enviar</button>
+        </div>
+
+    </form>
+
+    
+</div>
+
+@*<script>
+    function crearNuevoRegistro() {
+    var nuevoCliente = {
+        nombre: $('#nombre').val(),
+        dpi: $('#dpi').val(),
+        correo: $('#correo').val(),
+        tarjeta: $('#tarjeta').val()
+        
+    }
+
+    $.ajax({
+        url: '@Url.Action("Cliente", "Cine")',
+        type: 'POST',
+        data: {
+            objCliente: nuevoCliente
+        },
+        success: function (resultado) {
+            if (resultado.result == true) {
+                console.log("Se agregó exitosamente")
+            }
+        },
+        error: function (error) {
+            console.log('Se encontró el siguiente error --> ' + error.state + ' : ' + error.statusText);
+        }
+    });
+}
+</script>*@
+
+
+

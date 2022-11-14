@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="18.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CARTELERA">
+          <Key>
+            <PropertyRef Name="ID_CARTELERA" />
+          </Key>
+          <Property Name="ID_CARTELERA" Type="number" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FECHA" Type="varchar2" MaxLength="30" />
+          <Property Name="HORARIO" Type="varchar2" MaxLength="30" />
+          <Property Name="ID_CLIENTE" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="ID_CLIENTE" />
+          </Key>
+          <Property Name="ID_CLIENTE" Type="number" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE_CLIENTE" Type="varchar2" MaxLength="30" />
+          <Property Name="IDENTIDAD_CLIENTE" Type="varchar2" MaxLength="20" />
+          <Property Name="EMAIL_CLIENTE" Type="varchar2" MaxLength="30" />
+          <Property Name="TARJETA_CREDITO" Type="varchar2" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="PELICULAS">
+          <Key>
+            <PropertyRef Name="ID_PELICULA" />
+          </Key>
+          <Property Name="ID_PELICULA" Type="number" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE_PELICULA" Type="varchar2" MaxLength="30" />
+          <Property Name="FECHA" Type="varchar2" MaxLength="30" />
+          <Property Name="HORARIO" Type="varchar2" MaxLength="30" />
+          <Property Name="ID_RESERVA" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RESERVAS">
+          <Key>
+            <PropertyRef Name="ID_RESERVA" />
+          </Key>
+          <Property Name="ID_RESERVA" Type="number" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIPO_RESERVA" Type="varchar2" MaxLength="30" />
+          <Property Name="CANTIDAD_VOLETOS" Type="varchar2" MaxLength="30" />
+          <Property Name="ID_CLIENTE" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SALA">
+          <Key>
+            <PropertyRef Name="ID_SALA" />
+          </Key>
+          <Property Name="ID_SALA" Type="number" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NUMERO_SALA" Type="varchar2" MaxLength="30" />
+          <Property Name="ASIENTO" Type="varchar2" MaxLength="30" />
+          <Property Name="ID_RESERVA" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SUCURSAL">
+          <Key>
+            <PropertyRef Name="ID_SUCURSAL" />
+          </Key>
+          <Property Name="ID_SUCURSAL" Type="number" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UBICACION" Type="varchar2" MaxLength="40" />
+          <Property Name="NOMBRE_SUCURSAL" Type="varchar2" MaxLength="40" />
+          <Property Name="DIRECCION" Type="varchar2" MaxLength="30" />
+          <Property Name="ID_CLIENTE" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="SYS_C007518">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="SUCURSAL" Type="Self.SUCURSAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="SUCURSAL">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007522">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="CARTELERA" Type="Self.CARTELERA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="CARTELERA">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007526">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="RESERVAS" Type="Self.RESERVAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="RESERVAS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007530">
+          <End Role="RESERVAS" Type="Self.RESERVAS" Multiplicity="1" />
+          <End Role="PELICULAS" Type="Self.PELICULAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESERVAS">
+              <PropertyRef Name="ID_RESERVA" />
+            </Principal>
+            <Dependent Role="PELICULAS">
+              <PropertyRef Name="ID_RESERVA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007534">
+          <End Role="RESERVAS" Type="Self.RESERVAS" Multiplicity="1" />
+          <End Role="SALA" Type="Self.SALA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESERVAS">
+              <PropertyRef Name="ID_RESERVA" />
+            </Principal>
+            <Dependent Role="SALA">
+              <PropertyRef Name="ID_RESERVA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="CARTELERA" EntityType="Self.CARTELERA" Schema="CINE" store:Type="Tables" />
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="CINE" store:Type="Tables" />
+          <EntitySet Name="PELICULAS" EntityType="Self.PELICULAS" Schema="CINE" store:Type="Tables" />
+          <EntitySet Name="RESERVAS" EntityType="Self.RESERVAS" Schema="CINE" store:Type="Tables" />
+          <EntitySet Name="SALA" EntityType="Self.SALA" Schema="CINE" store:Type="Tables" />
+          <EntitySet Name="SUCURSAL" EntityType="Self.SUCURSAL" Schema="CINE" store:Type="Tables" />
+          <AssociationSet Name="SYS_C007518" Association="Self.SYS_C007518">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="SUCURSAL" EntitySet="SUCURSAL" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007522" Association="Self.SYS_C007522">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="CARTELERA" EntitySet="CARTELERA" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007526" Association="Self.SYS_C007526">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="RESERVAS" EntitySet="RESERVAS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007530" Association="Self.SYS_C007530">
+            <End Role="RESERVAS" EntitySet="RESERVAS" />
+            <End Role="PELICULAS" EntitySet="PELICULAS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007534" Association="Self.SYS_C007534">
+            <End Role="RESERVAS" EntitySet="RESERVAS" />
+            <End Role="SALA" EntitySet="SALA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CARTELERA">
+          <Key>
+            <PropertyRef Name="ID_CARTELERA" />
+          </Key>
+          <Property Name="ID_CARTELERA" Type="Decimal" Precision="38" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FECHA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="HORARIO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ID_CLIENTE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.SYS_C007522" FromRole="CARTELERA" ToRole="CLIENTE" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="ID_CLIENTE" />
+          </Key>
+          <Property Name="ID_CLIENTE" Type="Decimal" Precision="38" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE_CLIENTE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IDENTIDAD_CLIENTE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL_CLIENTE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TARJETA_CREDITO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CARTELERA" Relationship="Self.SYS_C007522" FromRole="CLIENTE" ToRole="CARTELERA" />
+          <NavigationProperty Name="SUCURSAL" Relationship="Self.SYS_C007518" FromRole="CLIENTE" ToRole="SUCURSAL" />
+          <NavigationProperty Name="RESERVAS" Relationship="Self.SYS_C007526" FromRole="CLIENTE" ToRole="RESERVAS" />
+        </EntityType>
+        <EntityType Name="PELICULAS">
+          <Key>
+            <PropertyRef Name="ID_PELICULA" />
+          </Key>
+          <Property Name="ID_PELICULA" Type="Decimal" Precision="38" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE_PELICULA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="HORARIO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ID_RESERVA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="RESERVAS" Relationship="Self.SYS_C007530" FromRole="PELICULAS" ToRole="RESERVAS" />
+        </EntityType>
+        <EntityType Name="RESERVAS">
+          <Key>
+            <PropertyRef Name="ID_RESERVA" />
+          </Key>
+          <Property Name="ID_RESERVA" Type="Decimal" Precision="38" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIPO_RESERVA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CANTIDAD_VOLETOS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ID_CLIENTE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.SYS_C007526" FromRole="RESERVAS" ToRole="CLIENTE" />
+          <NavigationProperty Name="PELICULAS" Relationship="Self.SYS_C007530" FromRole="RESERVAS" ToRole="PELICULAS" />
+          <NavigationProperty Name="SALA" Relationship="Self.SYS_C007534" FromRole="RESERVAS" ToRole="SALA" />
+        </EntityType>
+        <EntityType Name="SALA">
+          <Key>
+            <PropertyRef Name="ID_SALA" />
+          </Key>
+          <Property Name="ID_SALA" Type="Decimal" Precision="38" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NUMERO_SALA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ASIENTO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ID_RESERVA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="RESERVAS" Relationship="Self.SYS_C007534" FromRole="SALA" ToRole="RESERVAS" />
+        </EntityType>
+        <EntityType Name="SUCURSAL">
+          <Key>
+            <PropertyRef Name="ID_SUCURSAL" />
+          </Key>
+          <Property Name="ID_SUCURSAL" Type="Decimal" Precision="38" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UBICACION" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_SUCURSAL" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ID_CLIENTE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.SYS_C007518" FromRole="SUCURSAL" ToRole="CLIENTE" />
+        </EntityType>
+        <Association Name="SYS_C007522">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="CARTELERA" Type="Self.CARTELERA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="CARTELERA">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007518">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="SUCURSAL" Type="Self.SUCURSAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="SUCURSAL">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007526">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="RESERVAS" Type="Self.RESERVAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="RESERVAS">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007530">
+          <End Role="RESERVAS" Type="Self.RESERVAS" Multiplicity="1" />
+          <End Role="PELICULAS" Type="Self.PELICULAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESERVAS">
+              <PropertyRef Name="ID_RESERVA" />
+            </Principal>
+            <Dependent Role="PELICULAS">
+              <PropertyRef Name="ID_RESERVA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007534">
+          <End Role="RESERVAS" Type="Self.RESERVAS" Multiplicity="1" />
+          <End Role="SALA" Type="Self.SALA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESERVAS">
+              <PropertyRef Name="ID_RESERVA" />
+            </Principal>
+            <Dependent Role="SALA">
+              <PropertyRef Name="ID_RESERVA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CARTELERA" EntityType="Self.CARTELERA" />
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+          <EntitySet Name="PELICULAS" EntityType="Self.PELICULAS" />
+          <EntitySet Name="RESERVAS" EntityType="Self.RESERVAS" />
+          <EntitySet Name="SALA" EntityType="Self.SALA" />
+          <EntitySet Name="SUCURSAL" EntityType="Self.SUCURSAL" />
+          <AssociationSet Name="SYS_C007522" Association="Self.SYS_C007522">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="CARTELERA" EntitySet="CARTELERA" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007518" Association="Self.SYS_C007518">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="SUCURSAL" EntitySet="SUCURSAL" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007526" Association="Self.SYS_C007526">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="RESERVAS" EntitySet="RESERVAS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007530" Association="Self.SYS_C007530">
+            <End Role="RESERVAS" EntitySet="RESERVAS" />
+            <End Role="PELICULAS" EntitySet="PELICULAS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007534" Association="Self.SYS_C007534">
+            <End Role="RESERVAS" EntitySet="RESERVAS" />
+            <End Role="SALA" EntitySet="SALA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="CARTELERA">
+            <EntityTypeMapping TypeName="Model.CARTELERA">
+              <MappingFragment StoreEntitySet="CARTELERA">
+                <ScalarProperty Name="ID_CARTELERA" ColumnName="ID_CARTELERA" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="HORARIO" ColumnName="HORARIO" />
+                <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENTE">
+            <EntityTypeMapping TypeName="Model.CLIENTE">
+              <MappingFragment StoreEntitySet="CLIENTE">
+                <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+                <ScalarProperty Name="NOMBRE_CLIENTE" ColumnName="NOMBRE_CLIENTE" />
+                <ScalarProperty Name="IDENTIDAD_CLIENTE" ColumnName="IDENTIDAD_CLIENTE" />
+                <ScalarProperty Name="EMAIL_CLIENTE" ColumnName="EMAIL_CLIENTE" />
+                <ScalarProperty Name="TARJETA_CREDITO" ColumnName="TARJETA_CREDITO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PELICULAS">
+            <EntityTypeMapping TypeName="Model.PELICULAS">
+              <MappingFragment StoreEntitySet="PELICULAS">
+                <ScalarProperty Name="ID_PELICULA" ColumnName="ID_PELICULA" />
+                <ScalarProperty Name="NOMBRE_PELICULA" ColumnName="NOMBRE_PELICULA" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="HORARIO" ColumnName="HORARIO" />
+                <ScalarProperty Name="ID_RESERVA" ColumnName="ID_RESERVA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESERVAS">
+            <EntityTypeMapping TypeName="Model.RESERVAS">
+              <MappingFragment StoreEntitySet="RESERVAS">
+                <ScalarProperty Name="ID_RESERVA" ColumnName="ID_RESERVA" />
+                <ScalarProperty Name="TIPO_RESERVA" ColumnName="TIPO_RESERVA" />
+                <ScalarProperty Name="CANTIDAD_VOLETOS" ColumnName="CANTIDAD_VOLETOS" />
+                <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SALA">
+            <EntityTypeMapping TypeName="Model.SALA">
+              <MappingFragment StoreEntitySet="SALA">
+                <ScalarProperty Name="ID_SALA" ColumnName="ID_SALA" />
+                <ScalarProperty Name="NUMERO_SALA" ColumnName="NUMERO_SALA" />
+                <ScalarProperty Name="ASIENTO" ColumnName="ASIENTO" />
+                <ScalarProperty Name="ID_RESERVA" ColumnName="ID_RESERVA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUCURSAL">
+            <EntityTypeMapping TypeName="Model.SUCURSAL">
+              <MappingFragment StoreEntitySet="SUCURSAL">
+                <ScalarProperty Name="ID_SUCURSAL" ColumnName="ID_SUCURSAL" />
+                <ScalarProperty Name="UBICACION" ColumnName="UBICACION" />
+                <ScalarProperty Name="NOMBRE_SUCURSAL" ColumnName="NOMBRE_SUCURSAL" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

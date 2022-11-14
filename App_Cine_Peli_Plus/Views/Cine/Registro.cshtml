@@ -89,27 +89,28 @@
         <div class="col-md-7">
             <div class="card-body">
                 <h5 class="card-title">Reservas</h5>
-                <form  action="~/Cine/Registro" method="post">
+                <form >
                     <div class="col-lg-4">
                         <label>Nombre</label>
-                        <input type="text" name="nombre" placeholder="Nombre" class="form-control" />
+                        <input type="text"  placeholder="Nombre" class="form-control" id="nombre" />
                     </div>
                     <div class="col-lg-4">
                         <label>DPI</label>
-                        <input type="text" name="identidad" placeholder="Identidad" class="form-control" />
+                        <input type="text"  placeholder="Identidad" class="form-control" id="dpi" />
                     </div>
                     <div class="col-lg-4">
                         <label class="col-lg-5">Correo</label>
-                        <input type="text" name="email" placeholder="Email" class="form-control" />
+                        <input type="text"  placeholder="Email" class="form-control" id="correo" />
                     </div>
 
-                    @*---------LINEA SIGIENTE DE LA CARD----------------------*@
+                   
                     <div class="col-lg-4">
                         <label>Tarjeta Crédito</label>
-                        <input type="text" name="tarjeta" placeholder="Tarjeta" class="form-control" />
+                        <input type="text" placeholder="Tarjeta" class="form-control" id="tarjeta" />
 
+                        @*---------LINEA SIGIENTE DE LA CARD A TABLA Reservas----------------------*@
                     </div>
-                    <div class="col-lg-4">
+                    @*<div class="col-lg-4">
                         <label>Tipo Reserva </label>
                         <select class="form-control" required name="reserva" >
                             <option value="">Buscar..</option>
@@ -150,15 +151,15 @@
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select>
-                    </div>
+                    </div>*@
                     <br />
                     <div>
                         <div class="col-lg-6" style="padding:20px">
-                            <button type="submit" class="btn btn-danger">Enviar</button>
+                            <button onclick="crearNuevoRegistro() " class="btn btn-danger">Siguiente</button>
                         </div>
 
                     </div> <br />
-                           <div>
+                           @*<div>
                                <h3>@ViewBag.Nombre</h3>
                                <h3>@ViewBag.Identidad</h3>
                                <h3>@ViewBag.Email</h3>
@@ -167,7 +168,7 @@
                                <h3>@ViewBag.Voletos</h3>
                                <h3>@ViewBag.Sala</h3>
                                <h3>@ViewBag.Asientos</h3>
-                           </div>
+                           </div>*@
 
                 </form>
 
@@ -175,5 +176,34 @@
         </div>
     </div>
 </div>
+
+@*---------------------FUNCION PARA ENVIO DE DATOS A LA TABLAS CLIENTES*@
+<script>
+    function crearNuevoRegistro() {
+    var nuevoCliente = {
+        nombre: $('#nombre').val(),
+        dpi: $('#dpi').val(),
+        correo: $('#correo').val(),
+        tarjeta: $('#tarjeta').val()
+
+    }
+
+    $.ajax({
+        url: '@Url.Action("Cliente", "Cine")',
+        type: 'POST',
+        data: {
+            objCliente: nuevoCliente
+        },
+        success: function (resultado) {
+            if (resultado.result == true) {
+                alert("Datos guardados correctamente");
+            }
+        },
+        error: function (error) {
+            console.log('Se encontró el siguiente error --> ' + error.state + ' : ' + error.statusText);
+        }
+    });
+}
+</script>
 
 

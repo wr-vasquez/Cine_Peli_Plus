@@ -84,3 +84,9 @@ C:\Users\Wilson Vasquez\OneDrive\Escritorio\App_Cine_Peli_Plus\App_Cine_Peli_Plu
 C:\Users\Wilson Vasquez\OneDrive\Escritorio\App_Cine_Peli_Plus\App_Cine_Peli_Plus\obj\Debug\App_Cine_Peli_Plus.csproj.CopyComplete
 C:\Users\Wilson Vasquez\OneDrive\Escritorio\App_Cine_Peli_Plus\App_Cine_Peli_Plus\obj\Debug\App_Cine_Peli_Plus.dll
 C:\Users\Wilson Vasquez\OneDrive\Escritorio\App_Cine_Peli_Plus\App_Cine_Peli_Plus\obj\Debug\App_Cine_Peli_Plus.pdb
+C:\Users\Wilson Vasquez\OneDrive\Escritorio\App_Cine_Peli_Plus\App_Cine_Peli_Plus\bin\EntityFramework.dll
+C:\Users\Wilson Vasquez\OneDrive\Escritorio\App_Cine_Peli_Plus\App_Cine_Peli_Plus\bin\EntityFramework.SqlServer.dll
+C:\Users\Wilson Vasquez\OneDrive\Escritorio\App_Cine_Peli_Plus\App_Cine_Peli_Plus\bin\Oracle.ManagedDataAccess.dll
+C:\Users\Wilson Vasquez\OneDrive\Escritorio\App_Cine_Peli_Plus\App_Cine_Peli_Plus\bin\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Users\Wilson Vasquez\OneDrive\Escritorio\App_Cine_Peli_Plus\App_Cine_Peli_Plus\bin\EntityFramework.xml
+C:\Users\Wilson Vasquez\OneDrive\Escritorio\App_Cine_Peli_Plus\App_Cine_Peli_Plus\bin\EntityFramework.SqlServer.xml

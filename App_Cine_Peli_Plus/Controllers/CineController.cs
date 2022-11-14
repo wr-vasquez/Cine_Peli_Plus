@@ -1,4 +1,6 @@
-﻿using System;
+﻿using App_Cine_Peli_Plus.Dto;
+using App_Cine_Peli_Plus.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,52 +10,65 @@ namespace App_Cine_Peli_Plus.Controllers
 {
     public class CineController : Controller
     {
-        public class Cliente
-        {
-            public string Nombre { get; set; }
-            public string Identidad { get; set; }
-            public string Email { get; set; }
-            public string Tarjeta { get; set; }
-            public string Tipo_Reserva { get; set; }
-            public string Voletos { get; set; }
-            public string Sala { get; set; }
-            public string Asientos { get; set; }
-
-        }
+        
         // GET: Cine
         public ActionResult Registro()
+        {
+            return View();
+        }
+        public ActionResult DtosClientes()
         {
             return View();
         }
 
         //POST: Cine
         [HttpPost]
-        public ActionResult Registro(Cliente c, string nombre, string identidad, string email, string tarjeta, string reserva, string voletos, string sala, string asientos)
+        public ActionResult Cliente(ClienteDto objCliente )
         {
-            c.Nombre = nombre;
-            c.Identidad = identidad;
-            c.Email = email;
-            c.Tarjeta = tarjeta;
-            c.Tipo_Reserva = reserva;
-            c.Voletos = voletos;
-            c.Sala = sala;
-            c.Asientos = asientos;
+            using (Entities ctx = new Entities () )
+            {
+                CLIENTE Datos = new CLIENTE();
+                Datos.NOMBRE_CLIENTE = objCliente.nombre;
+                Datos.IDENTIDAD_CLIENTE = objCliente.dpi;
+                Datos.EMAIL_CLIENTE = objCliente.correo;
+                Datos.TARJETA_CREDITO = objCliente.tarjeta;
+
+                ctx.CLIENTE.Add(Datos);
+                ctx.SaveChanges();
+
+            }
+        
+            return Json(new { result = true }, JsonRequestBehavior.AllowGet);
 
 
-            ViewBag.Nombre = c.Nombre;
-            ViewBag.Identidad = c.Identidad;
-            ViewBag.Email = c.Email;
-            ViewBag.Tarjeta = c.Tarjeta;
-            ViewBag.Tipo_Reserva = c.Tipo_Reserva;
-            ViewBag.Voletos = c.Voletos;
-            ViewBag.Sala = c.Sala;
-            ViewBag.Asientos = c.Asientos;
 
-            return View();
-
-            
 
 
         }
+
+
+
+        public JsonResult ObtenerDatosCliente()
+        {
+            List<ClienteDto> datosCliente = new List<ClienteDto>();
+
+            using (Entities ctx = new Entities())
+            {
+                datosCliente = (from dc in ctx.CLIENTE
+                                select new ClienteDto
+                                {
+
+                                    nombre = dc.NOMBRE_CLIENTE,
+                                    dpi = dc.IDENTIDAD_CLIENTE,
+                                    correo = dc.EMAIL_CLIENTE,
+                                    tarjeta = dc.TARJETA_CREDITO
+                                    
+                                }).ToList();
+            }
+            return Json(datosCliente, JsonRequestBehavior.AllowGet);
+        }
     }
+
+
+
 }

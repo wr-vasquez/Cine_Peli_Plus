@@ -29,57 +29,15 @@
             <thead>
                 <tr>
 
-                    <th scope="col">Tipo reserva</th>
-                    <th scope="col">Voletos</th>
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Horario </th>
-                    <th scope="col">Sala</th>
-                    <th scope="col">Asientos</th>
-
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Dpi</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Tarjeta</th>
+                   
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-
-                    <td>3D</td>
-                    <td>2</td>
-                    <td>11/11/2022</td>
-                    <td>14:00 - 15:00 PM</td>
-                    <td>10</td>
-                    <td>10-11</td>
-                </tr>
-                <tr>
-                    <td>2D</td>
-                    <td>1</td>
-                    <td>15/11/2022</td>
-                    <td>17:00 - 18:00 PM</td>
-                    <td>2</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>3D</td>
-                    <td>3</td>
-                    <td>13/11/2022</td>
-                    <td>17: - 17:40 PM</td>
-                    <td>2</td>
-                    <td>5-6-7</td>
-                </tr>
-                <tr>
-                    <td>3D</td>
-                    <td>2</td>
-                    <td>12/11/2022</td>
-                    <td>18:00 19:10 PM</td>
-                    <td>1</td>
-                    <td>8-9</td>
-                </tr>
-                <tr>
-                    <td>2D</td>
-                    <td>4</td>
-                    <td>12/11/2022</td>
-                    <td>20:00 - 21:00 PM</td>
-                    <td>4</td>
-                    <td>6-7, 11-12</td>
-                </tr>
+            <tbody id="Reserva" >
+                
             </tbody>
         </table>
 
@@ -88,6 +46,38 @@
         </div>
 
     </main>
+
+    <script>
+
+        const Mostrar = document.getElementById("Reserva");
+        CineDato();
+        function CineDato()
+        {
+            fetch('@Url.Action("ObtenerDatosCliente", "Cine")')
+            .then(function(cliente){
+                return cliente.json();
+            })
+            .then(function(datosCliente){
+                for (let i = 0; i < datosCliente.length; i++) {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                       <th scope="col">${datosCliente[i].nombre}</th>
+                       <th scope="col">${datosCliente[i].dpi}</th>
+                       <th scope="col">${datosCliente[i].correo}</th>
+                        <th scope="col">${datosCliente[i].tarjeta}</th>
+ 
+                        `;
+                    Mostrar.appendChild(tr);
+                   
+                    
+                }
+            })
+
+
+
+        }
+
+    </script>
 
 </body>
 </html>

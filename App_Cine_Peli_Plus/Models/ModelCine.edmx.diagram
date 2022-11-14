@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8ebf251e44fe48838d060ec8179984ce" Name="Diagram1" ZoomLevel="75">
+        <EntityTypeShape EntityType="Model.CARTELERA" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CLIENTE" Width="1.5" PointX="0.625" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PELICULAS" Width="1.5" PointX="8.625" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.RESERVAS" Width="1.5" PointX="5" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SALA" Width="1.5" PointX="7.625" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SUCURSAL" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="Model.SYS_C007522" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C007518" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C007526" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C007530" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C007534" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
