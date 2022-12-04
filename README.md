@@ -21,5 +21,6 @@ Espacio para proyecto de Cine
 </div>
 ###  Menú para realizar las reservas :
 <div align="center">
-[![reservar.png](https://i.postimg.cc/RV41H1mF/reservar.png)](https://postimg.cc/rzZt6rKX)
+<img src="https://i.postimg.cc/RV41H1mF/reservar.png" title="reservar" alt="Reserar" width="600" height="400" />
+
 </div>
