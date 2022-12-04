@@ -73,8 +73,6 @@ namespace App_Cine_Peli_Plus.Controllers
         }
 
 
-
-
         //  DATOS QUE SE RECIBEN DE LA BASE DE DATOS //
         public JsonResult ObtenerDatosCliente()
         {

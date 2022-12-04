@@ -27,9 +27,9 @@ table {
     table tr.even,
     table tr.alt,
     table tr:nth-of-type(even) {
-<<<<<<< HEAD
-        background: #f9f9f9
-    }
-=======
+
         background: #f9f9f9;
->>>>>>> 7b02eac6fcfe27bcfa9f9c8a455853357ec64814
+    }
+
+
+
